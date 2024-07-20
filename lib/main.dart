@@ -43,7 +43,9 @@ class MyApp extends StatelessWidget {
         '/youtubeM': (context) => YoutubeLinksScreenM(),
         '/youtubeH': (context) => YoutubeLinksScreenH(),
         '/youtubecontainers': (context) => LangContainers(),
-        '/farmerfeats': (context) => IndianFarmersScreen()
+        '/farmerfeats': (context) => IndianFarmersScreen(),
+        '/fertilizer': (context) => PredictorScreen(),
+        '/chat': (context) => ChatPage()
       },
     );
   }

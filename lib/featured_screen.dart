@@ -63,7 +63,7 @@ class Body extends StatelessWidget {
             description:
                 'Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop',
             onTap: () {
-              // Navigate to fertilizer recommendation screen
+              Navigator.pushNamed(context, '/fertilizer');
             },
           ),
           ProductServiceCard(
@@ -72,7 +72,7 @@ class Body extends StatelessWidget {
             description:
                 'Predicting the name and causes of crop disease and suggestions to cure it',
             onTap: () {
-              // Navigate to crop disease prediction screen
+              Navigator.pushNamed(context, '/chat');
             },
           ),
           ProductServiceCard(
