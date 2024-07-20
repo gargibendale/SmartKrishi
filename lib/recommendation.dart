@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'localizations/app_localizations.dart';
 
 class RecommendationPage extends StatefulWidget {
+  final ValueChanged<Locale> onLanguageChanged;
+
+  RecommendationPage({required this.onLanguageChanged});
+
   @override
   _RecommendationPageState createState() => _RecommendationPageState();
 }
@@ -73,11 +78,16 @@ class _RecommendationPageState extends State<RecommendationPage> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Crop Recommendation'),
+        backgroundColor: Colors.green[900],
+        foregroundColor: Colors.white,
       ),
-      body: Padding(
+      body: Container(
+        color: Colors.yellow.shade50,
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
@@ -85,77 +95,105 @@ class _RecommendationPageState extends State<RecommendationPage> {
             children: <Widget>[
               TextFormField(
                 controller: _nController,
-                decoration: InputDecoration(labelText: 'Nitrogen (N)'),
+                decoration: InputDecoration(
+                  labelText: localizations?.translate('nitrogen'),
+                  labelStyle: TextStyle(color: Colors.green[900]),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green[900]),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Nitrogen value';
+                    return localizations?.translate('enter_nitrogen');
                   }
                   return null;
                 },
               ),
               TextFormField(
                 controller: _pController,
-                decoration: InputDecoration(labelText: 'Phosphorus (P)'),
+                decoration: InputDecoration(
+                  labelText: localizations?.translate('phosphorus'),
+                  labelStyle: TextStyle(color: Colors.green[900]),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green[900]),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Phosphorus value';
+                    return localizations?.translate('enter_phosphorus');
                   }
                   return null;
                 },
               ),
               TextFormField(
                 controller: _kController,
-                decoration: InputDecoration(labelText: 'Potassium (K)'),
+                decoration: InputDecoration(
+                  labelText: localizations?.translate('potassium'),
+                  labelStyle: TextStyle(color: Colors.green[900]),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green[900]),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Potassium value';
+                    return localizations?.translate('enter_potassium');
                   }
                   return null;
                 },
               ),
               TextFormField(
                 controller: _temperatureController,
-                decoration: InputDecoration(labelText: 'Temperature (°C)'),
+                decoration: InputDecoration(
+                  labelText: localizations?.translate('temperature'),
+                  labelStyle: TextStyle(color: Colors.green[900]),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green[900]),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Temperature value';
+                    return localizations?.translate('enter_temperature');
                   }
                   return null;
                 },
               ),
               TextFormField(
                 controller: _humidityController,
-                decoration: InputDecoration(labelText: 'Humidity (%)'),
+                decoration: InputDecoration(
+                  labelText: localizations?.translate('humidity'),
+                  labelStyle: TextStyle(color: Colors.green[900]),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green[900]),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Humidity value';
+                    return localizations?.translate('enter_humidity');
                   }
                   return null;
                 },
               ),
               TextFormField(
                 controller: _phController,
-                decoration: InputDecoration(labelText: 'pH'),
+                decoration: InputDecoration(
+                  labelText: localizations?.translate('ph'),
+                  labelStyle: TextStyle(color: Colors.green[900]),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green[900]),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter pH value';
+                    return localizations?.translate('enter_ph');
                   }
                   return null;
                 },
               ),
               TextFormField(
                 controller: _rainfallController,
-                decoration: InputDecoration(labelText: 'Rainfall (mm)'),
+                decoration: InputDecoration(
+                  labelText: localizations?.translate('rainfall'),
+                  labelStyle: TextStyle(color: Colors.green[900]),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green[900]),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Rainfall value';
+                    return localizations?.translate('enter_rainfall');
                   }
                   return null;
                 },
@@ -163,15 +201,20 @@ class _RecommendationPageState extends State<RecommendationPage> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _getRecommendation,
-                child: Text('Get Recommendation'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green[900], // Background color
+                  foregroundColor: Colors.white, // Text color
+                ),
+                child: Text(localizations!.translate('get_recommendation')!),
               ),
               SizedBox(height: 20),
               Text(
                 _recommendedCrop.isEmpty
-                    ? 'No recommendation yet'
-                    : 'Recommended Crop: $_recommendedCrop',
+                    ? localizations.translate('no_recommendation_yet')!
+                    : '${localizations?.translate('recommended_crop')!} $_recommendedCrop',
                 style: TextStyle(fontSize: 18),
               ),
+              
             ],
           ),
         ),

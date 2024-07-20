@@ -1,3 +1,5 @@
+import 'package:agri/video_screene.dart';
+import 'package:agri/videos_screenh.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -40,11 +42,27 @@ class YoutubeLinksScreenM extends StatelessWidget {
     ],
   };
 
-  Future<void> _launchUrl(String url) async {
+ Future<void> _launchUrl(String url) async {
     try {
       launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
     } catch (e) {
       print(e);
+    }
+  }
+
+  void _changeLanguage(BuildContext context, String language) {
+    if (language == 'Hindi') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => YoutubeLinksScreenH()),
+      );
+    } else if (language == 'English') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => YoutubeLinksScreen()),
+      );
+    } else {
+      print('Language changed to $language');
     }
   }
 
@@ -53,9 +71,25 @@ class YoutubeLinksScreenM extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('मराठीतील कृषी तंत्र आणि मूलभूत गोष्टी'),
+        backgroundColor: Colors.green.shade900,
+        foregroundColor: Colors.white,
+        actions: [
+          PopupMenuButton<String>(
+            onSelected: (String choice) => _changeLanguage(context, choice),
+            itemBuilder: (BuildContext context) {
+              return {'English', 'Hindi', 'Marathi'}.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(choice),
+                );
+              }).toList();
+            },
+            icon: Icon(Icons.more_vert),
+          ),
+        ],
       ),
       body: Container(
-        color: Colors.white,
+        color: Colors.yellow.shade50,
         child: ListView.builder(
           itemCount: exercises.keys.length,
           itemBuilder: (context, index) {
@@ -79,7 +113,7 @@ class YoutubeLinksScreenM extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(12.0),
                       decoration: BoxDecoration(
-                        color: Colors.green.shade900,
+                        color: Colors.green.shade200,
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Row(
@@ -88,7 +122,7 @@ class YoutubeLinksScreenM extends StatelessWidget {
                           Flexible(
                             child: Text(
                               video['title']!,
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.black, fontWeight : FontWeight.bold),
                               textAlign: TextAlign.left,
                             ),
                           ),

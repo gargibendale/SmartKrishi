@@ -8,5 +8,55 @@
   "crop_disease": "फसल रोग",
   "Predicting the name and causes of the crop disease and suggestions to cure it": "फसल रोग के नाम और कारणों की भविष्यवाणी और इसे ठीक करने के सुझाव",
   "youtube_picks": "यूट्यूब पसंद",
-  "Various youtube links to useful advice in multiple languages": "विभिन्न भाषाओं में उपयोगी सलाह के लिए विभिन्न यूट्यूब लिंक"
+  "Various youtube links to useful advice in multiple languages": "विभिन्न भाषाओं में उपयोगी सलाह के लिए विभिन्न यूट्यूब लिंक",
+  "Feats of Great Indian Farmers": "महान भारतीय किसानों की उपलब्धियां",
+  "Rajkumari Devi (Kisan Chachi)": "राजकुमारी देवी (किसान चाची)",
+  "Known for her work in organic farming and empowering women through self-help groups in Bihar.": "बिहार में जैविक खेती और स्व-सहायता समूहों के माध्यम से महिलाओं के सशक्तीकरण के लिए जानी जाती हैं।",
+  "Babulal Dahiya": "बाबुलाल दहिया",
+   "An organic farmer from Madhya Pradesh who grows over 200 traditional varieties of rice and is also a renowned poet.": "मध्य प्रदेश के एक जैविक किसान जो 200 से अधिक पारंपरिक चावल की किस्में उगाते हैं और एक प्रसिद्ध कवि भी हैं।",
+  "Vallabhbhai Vasrambhai Marvaniya": "वल्लभभाई वस्रामभाई मारवानिया",
+        "A 97-year-old farmer from Gujarat who introduced carrots to local diets and developed high-yielding varieties.": "गुजरात के 97 वर्षीय किसान जिन्होंने स्थानीय आहार में गाजर की शुरुआत की और उच्च उपज वाली किस्में विकसित कीं।",
+      
+        "Kanwal Singh Chauhan": "कंवल सिंह चौहान",
+        "A farmer from Haryana who successfully cultivates baby corn and has helped over 5,000 farmers improve their yields.": "हरियाणा के एक किसान जिन्होंने बेबी कॉर्न की सफल खेती की और 5,000 से अधिक किसानों की उपज में सुधार किया।",
+     
+
+        "Kamala Pujhari":"कमला पुजारी",
+        "A tribal agricultural activist from Odisha known for preserving traditional paddy varieties and promoting organic farming.":"ओडिशा की एक आदिवासी कृषि कार्यकर्ता जिन्हें पारंपरिक धान की किस्में संरक्षित करने और जैविक खेती को बढ़ावा देने के लिए जाना जाता है।",
+     
+        "Jagdish Prasad Parikh":"जगदीश प्रसाद पारिख",
+        "A farmer from Rajasthan who holds a record for growing one of the largest cauliflowers in the world.": "राजस्थान के एक किसान जिन्होंने दुनिया के सबसे बड़े फूलगोभी का रिकॉर्ड बनाया है।",
+     
+         "Hukumchand Patidar":"हुकुमचंद पटेल",
+        "An organic farmer from Rajasthan who transformed his farm into a model for organic practices and exports produce internationally.": "राजस्थान के एक जैविक किसान जिन्होंने अपने फार्म को जैविक प्रथाओं के लिए एक मॉडल में बदल दिया और अंतरराष्ट्रीय स्तर पर उत्पाद निर्यात करते हैं।",
+     
+         "Bharat Bhushan Tyagi":"भारत भूषण त्यागी",
+        "A science graduate who returned to his village in Uttar Pradesh to promote organic farming and educate over 100,000 farmers.":"उत्तर प्रदेश के एक विज्ञान स्नातक जिन्होंने अपने गांव में जैविक खेती को बढ़ावा दिया और 100,000 से अधिक किसानों को शिक्षित किया।",
+      
+        "Ram Saran Verma":"रामसरन वर्मा",
+        "Known as UP's \"hi-tech farmer,\" he introduced tissue culture for banana farming and significantly increased his family's income.":"यूपी के हाई-टेक किसान के रूप में जाने जाने वाले उन्होंने केले की खेती के लिए टिशू कल्चर की शुरुआत की और अपने परिवार की आय में उल्लेखनीय वृद्धि की।",
+      
+   
+       "Subhash Palekar":"सुभाष पालेकर",
+      "A pioneer of natural farming in India, he developed the Zero Budget Natural Farming method to reduce costs and improve yields.":"भारत में प्राकृतिक खेती के अग्रदूत, उन्होंने लागत कम करने और पैदावार में सुधार करने के लिए शून्य बजट प्राकृतिक खेती पद्धति विकसित की",
+      
+        "nitrogen": "नाइट्रोजन (N)",
+        "phosphorus": "फास्फोरस (P)",
+        "potassium": "पोटैशियम (K)",
+        "temperature": "तापमान (°C)",
+        "humidity": "आर्द्रता (%)",
+        "ph": "pH",
+        "rainfall": "वर्षा (mm)",
+        "enter_nitrogen": "कृपया नाइट्रोजन मूल्य दर्ज करें",
+        "enter_phosphorus": "कृपया फास्फोरस मूल्य दर्ज करें",
+        "enter_potassium": "कृपया पोटैशियम मूल्य दर्ज करें",
+        "enter_temperature": "कृपया तापमान मूल्य दर्ज करें",
+        "enter_humidity": "कृपया आर्द्रता मूल्य दर्ज करें",
+        "enter_ph": "कृपया pH मूल्य दर्ज करें",
+        "enter_rainfall": "कृपया वर्षा मूल्य दर्ज करें",
+        "get_recommendation": "शिफारिश प्राप्त करें",
+        "no_recommendation_yet": "अभी तक कोई सिफारिश नहीं",
+        "recommended_crop": "सिफारिश की गई फसल: "
+      
+      
 }

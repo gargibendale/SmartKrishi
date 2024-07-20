@@ -24,21 +24,50 @@ class _PredictorScreenState extends State<PredictorScreen> {
   final TextEditingController temperatureController = TextEditingController();
   final TextEditingController humidityController = TextEditingController();
   final TextEditingController moistureController = TextEditingController();
-  final TextEditingController soilTypeController = TextEditingController();
-  final TextEditingController cropTypeController = TextEditingController();
   final TextEditingController nitrogenController = TextEditingController();
   final TextEditingController potassiumController = TextEditingController();
   final TextEditingController phosphorousController = TextEditingController();
 
+  String? selectedSoilType;
+  String? selectedCropType;
   String prediction = '';
 
+  Map<String, int> soilDict = {
+    'Loamy (1)': 1,
+    'Sandy (2)': 2,
+    'Clayey (3)': 3,
+    'Black (4)': 4,
+    'Red (5)': 5,
+  };
+
+  Map<String, int> cropDict = {
+    'Sugarcane (1)': 1,
+    'Cotton (2)': 2,
+    'Millets (3)': 3,
+    'Paddy (4)': 4,
+    'Pulses (5)': 5,
+    'Wheat (6)': 6,
+    'Tobacco (7)': 7,
+    'Barley (8)': 8,
+    'Oil seeds (9)': 9,
+    'Ground Nuts (10)': 10,
+    'Maize (11)': 11,
+  };
+
   void getPrediction() async {
+    if (selectedSoilType == null || selectedCropType == null) {
+      setState(() {
+        prediction = 'Please select soil type and crop type.';
+      });
+      return;
+    }
+
     Map<String, dynamic> data = {
       'Temperature': double.parse(temperatureController.text),
       'Humidity': double.parse(humidityController.text),
       'Moisture': double.parse(moistureController.text),
-      'Soil Type': soilTypeController.text,
-      'Crop Type': cropTypeController.text,
+      'Soil Type': soilDict[selectedSoilType],
+      'Crop Type': cropDict[selectedCropType],
       'Nitrogen': double.parse(nitrogenController.text),
       'Potassium': double.parse(potassiumController.text),
       'Phosphorous': double.parse(phosphorousController.text),
@@ -138,6 +167,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
               },
             ),
           ],
+          backgroundColor: Colors.yellow.shade50,
         );
       },
     );
@@ -146,7 +176,12 @@ class _PredictorScreenState extends State<PredictorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Fertilizer Predictor')),
+      appBar: AppBar(
+        title: Text('Fertilizer Predictor'),
+        backgroundColor: Colors.green.shade900,
+        foregroundColor: Colors.white,
+      ),
+      backgroundColor: Colors.yellow.shade50,
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -154,45 +189,103 @@ class _PredictorScreenState extends State<PredictorScreen> {
             children: [
               TextField(
                 controller: temperatureController,
-                decoration: InputDecoration(labelText: 'Temperature'),
+                decoration: InputDecoration(
+                  labelText: 'Temperature',
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green.shade900),
               ),
               TextField(
                 controller: humidityController,
-                decoration: InputDecoration(labelText: 'Humidity'),
+                decoration: InputDecoration(
+                  labelText: 'Humidity',
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green.shade900),
               ),
               TextField(
                 controller: moistureController,
-                decoration: InputDecoration(labelText: 'Moisture'),
+                decoration: InputDecoration(
+                  labelText: 'Moisture',
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green.shade900),
               ),
-              TextField(
-                controller: soilTypeController,
-                decoration: InputDecoration(labelText: 'Soil Type'),
+              DropdownButtonFormField<String>(
+                value: selectedSoilType,
+                items: soilDict.keys.map((String type) {
+                  return DropdownMenuItem<String>(
+                    value: type,
+                    child: Text(type),
+                  );
+                }).toList(),
+                onChanged: (newValue) {
+                  setState(() {
+                    selectedSoilType = newValue;
+                  });
+                },
+                decoration: InputDecoration(
+                  labelText: 'Soil Type',
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                ),
+                style: TextStyle(color: Colors.green.shade900),
               ),
-              TextField(
-                controller: cropTypeController,
-                decoration: InputDecoration(labelText: 'Crop Type'),
+              DropdownButtonFormField<String>(
+                value: selectedCropType,
+                items: cropDict.keys.map((String type) {
+                  return DropdownMenuItem<String>(
+                    value: type,
+                    child: Text(type),
+                  );
+                }).toList(),
+                onChanged: (newValue) {
+                  setState(() {
+                    selectedCropType = newValue;
+                  });
+                },
+                decoration: InputDecoration(
+                  labelText: 'Crop Type',
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                ),
+                style: TextStyle(color: Colors.green.shade900),
               ),
               TextField(
                 controller: nitrogenController,
-                decoration: InputDecoration(labelText: 'Nitrogen'),
+                decoration: InputDecoration(
+                  labelText: 'Nitrogen',
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green.shade900),
               ),
               TextField(
                 controller: potassiumController,
-                decoration: InputDecoration(labelText: 'Potassium'),
+                decoration: InputDecoration(
+                  labelText: 'Potassium',
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green.shade900),
               ),
               TextField(
                 controller: phosphorousController,
-                decoration: InputDecoration(labelText: 'Phosphorous'),
+                decoration: InputDecoration(
+                  labelText: 'Phosphorous',
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                ),
                 keyboardType: TextInputType.number,
+                style: TextStyle(color: Colors.green.shade900),
               ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: getPrediction,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green.shade900, // background (button) color
+                  foregroundColor: Colors.white, // foreground (text) color
+                ),
                 child: Text('Predict'),
               ),
               SizedBox(height: 20),

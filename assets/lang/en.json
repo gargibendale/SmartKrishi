@@ -8,5 +8,72 @@
   "crop_disease": "Crop Disease",
   "Predicting the name and causes of the crop disease and suggestions to cure it": "Predicting the name and causes of the crop disease and suggestions to cure it",
   "youtube_picks": "Youtube Picks",
-  "Various youtube links to useful advice in multiple languages": "Various youtube links to useful advice in multiple languages"
+  "Various youtube links to useful advice in multiple languages": "Various youtube links to useful advice in multiple languages",
+  
+  "Feats of Great Indian Farmers": "Feats of Great Indian Farmers",
+  "nitrogen": "Nitrogen (N)",
+        "phosphorus": "Phosphorus (P)",
+        "potassium": "Potassium (K)",
+        "temperature": "Temperature (°C)",
+        "humidity": "Humidity (%)",
+        "moisture": "Moisture",
+        "ph": "pH",
+        "rainfall": "Rainfall (mm)",
+        "enter_nitrogen": "Please enter Nitrogen value",
+        "enter_phosphorus": "Please enter Phosphorus value",
+        "enter_potassium": "Please enter Potassium value",
+        "enter_temperature": "Please enter Temperature value",
+        "enter_humidity": "Please enter Humidity value",
+        "enter_ph": "Please enter pH value",
+        "enter_rainfall": "Please enter Rainfall value",
+        "get_recommendation": "Get Recommendation",
+        "no_recommendation_yet": "No recommendation yet",
+        "recommended_crop": "Recommended Crop: ",
+  "farmers": {
+    "list": [
+      {
+        "name": "Rajkumari Devi (Kisan Chachi)",
+        "story": "Known for her work in organic farming and empowering women through self-help groups in Bihar."
+      },
+      {
+        "name": "Babulal Dahiya",
+        "story": "An organic farmer from Madhya Pradesh who grows over 200 traditional varieties of rice and is also a renowned poet."
+      },
+      {
+        "name": "Vallabhbhai Vasrambhai Marvaniya",
+        "story": "A 97-year-old farmer from Gujarat who introduced carrots to local diets and developed high-yielding varieties."
+      },
+      {
+        "name": "Kanwal Singh Chauhan",
+        "story": "A farmer from Haryana who successfully cultivates baby corn and has helped over 5,000 farmers improve their yields."
+      },
+      {
+        "name": "Kamala Pujhari",
+        "story": "A tribal agricultural activist from Odisha known for preserving traditional paddy varieties and promoting organic farming."
+      },
+      {
+        "name": "Jagdish Prasad Parikh",
+        "story": "A farmer from Rajasthan who holds a record for growing one of the largest cauliflowers in the world."
+      },
+      {
+        "name": "Hukumchand Patidar",
+        "story": "An organic farmer from Rajasthan who transformed his farm into a model for organic practices and exports produce internationally."
+      },
+      {
+        "name": "Bharat Bhushan Tyagi",
+        "story": "A science graduate who returned to his village in Uttar Pradesh to promote organic farming and educate over 100,000 farmers."
+      },
+      {
+        "name": "Ram Saran Verma",
+        "story": "Known as UP's \"hi-tech farmer,\" he introduced tissue culture for banana farming and significantly increased his family's income."
+      },
+      {
+        "name": "Subhash Palekar",
+        "story": "A pioneer of natural farming in India, he developed the Zero Budget Natural Farming method to reduce costs and improve yields."
+      }
+        
+      
+      
+    ]
+  }
 }

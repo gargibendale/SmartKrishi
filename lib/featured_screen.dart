@@ -1,10 +1,11 @@
 import 'package:agri/chat.dart';
+import 'package:agri/farmer_feats.dart' as farmer;
 import 'package:agri/farmer_feats.dart';
 import 'package:agri/fertilizer_prediction.dart';
 import 'package:agri/lang_containers.dart';
 import 'package:agri/localizations/app_localizations.dart';
 import 'package:agri/recommendation.dart';
-import 'package:agri/videos_screen.dart';
+import 'package:agri/video_screene.dart';
 import 'package:agri/videos_screenh.dart';
 import 'package:agri/videos_screenm.dart';
 import 'package:agri/weather.dart';
@@ -12,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'language_selection.dart';
+import 'package:agri/language_selection.dart' as lang;
 
 class FeaturedScreen extends StatefulWidget {
   const FeaturedScreen({Key? key}) : super(key: key);
@@ -46,7 +47,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return LanguageSelectionDialog(
+        return lang.LanguageSelectionDialog(
           onLanguageSelected: (String languageCode) async {
             SharedPreferences prefs = await SharedPreferences.getInstance();
             await prefs.setString('selected_language', languageCode);
@@ -58,6 +59,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
             // Reload localization
             await AppLocalizations.delegate.load(_locale);
           },
+          // Provide other required parameters if any
         );
       },
     );
@@ -82,6 +84,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
       home: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Scaffold(
+         backgroundColor: Colors.yellow.shade50,
           body: Column(
             children: [
               CustomAppBar(
@@ -93,15 +96,15 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
         ),
       ),
       routes: {
-         '/recommend': (context) => RecommendationPage(),
+        '/recommend': (context) => RecommendationPage(onLanguageChanged: (Locale value) {  },),
         '/youtubecontainers': (context) => LangContainers(),
-        '/farmerfeats': (context) => IndianFarmersScreen(),
+        '/farmerfeats': (context) => farmerfeats(onLanguageChanged: (String ) {  },),
         '/fertilizer': (context) => PredictorScreen(),
         '/chat': (context) => ChatPage(),
         '/youtubeE': (context) => YoutubeLinksScreen(),
         '/youtubeM': (context) => YoutubeLinksScreenM(),
         '/youtubeH': (context) => YoutubeLinksScreenH(),
-        '/weather': (context) => WeatherPage()
+        '/weather': (context) => WeatherPage(),
       },
     );
   }
@@ -183,9 +186,13 @@ class Body extends StatelessWidget {
           ),
           ProductServiceCard(
             imageUrl: 'assets/famous farmer.jpg',
-            title: 'Famous Indian Farmers',
-            description:
-                'Indian personalities who helped shape the farming practices of India',
+             title: localizations?.translate('Feats of Great Indian Farmers') ?? 'Feats of Great Indian Farmers',
+            description: localizations
+                    ?.translate('Feats of Great Indian Farmers Description') ??
+                localizations?.translate(
+                    'Indian personalities who helped shape the farming practices of India') ??
+                '',
+          
             onTap: () {
               Navigator.pushNamed(context, '/farmerfeats');
             },
@@ -205,7 +212,6 @@ class Body extends StatelessWidget {
     );
   }
 }
-
 
 class ProductServiceCard extends StatelessWidget {
   final String imageUrl;

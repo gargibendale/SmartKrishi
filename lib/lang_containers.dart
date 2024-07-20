@@ -13,13 +13,16 @@ class _LangContainersState extends State<LangContainers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          LangWidget(displayText: "English", route: '/youtubeE'),
-          LangWidget(displayText: "Hindi", route: '/youtubeH'),
-          LangWidget(displayText: "Marathi", route: '/youtubeM')
-        ],
+      backgroundColor: Colors.yellow.shade50,
+      
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            LangWidget(displayText: "Struggling with farming techniques?\nClick here for recommended YouTube videos to help you grow!", route: '/youtubeE'),
+            LangWidget(displayText: "खेती की पैदावार बढ़ाने में परेशानी हो रही है?\nजवाब के लिए यूट्यूब वीडियो देखें! यूट्यूब पर क्लिक करें!", route: '/youtubeH'),
+            LangWidget(displayText: "शेतीच्या उत्पादनात वाढ करण्यासाठी अडचण येत आहे का?\nउत्तरासाठी यूट्यूब व्हिडिओ पाहा! येथे क्लिक करा!", route: '/youtubeM')
+          ],
+        ),
       ),
     );
   }
@@ -38,12 +41,21 @@ class LangWidget extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 0.0),
           child: Container(
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 91, 211, 95),
+              color: Colors.green[200],
               borderRadius: BorderRadius.circular(15.0),
             ),
             height: 200,
             width: 400,
-            child: Center(child: Text(displayText)),
+            child: Center(
+              child: Text(
+                displayText,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
         ),
       ),

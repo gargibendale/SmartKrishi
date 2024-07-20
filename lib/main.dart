@@ -44,12 +44,12 @@ class MyApp extends StatelessWidget {
         '/feature': (context) => FeaturedScreen(),
         '/signup': (context) => SignUpPage(),
 
-        '/recommend': (context) => RecommendationPage(),
+        '/recommend': (context) => RecommendationPage(onLanguageChanged: (Locale value) {  },),
         '/youtubeE': (context) => YoutubeLinksScreen(),
         '/youtubeM': (context) => YoutubeLinksScreenM(),
         '/youtubeH': (context) => YoutubeLinksScreenH(),
         '/youtubecontainers': (context) => LangContainers(),
-        '/farmerfeats': (context) => IndianFarmersScreen(),
+        '/farmerfeats': (context) => farmerfeats(onLanguageChanged: (String ) {  },),
         '/fertilizer': (context) => PredictorScreen(),
         '/chat': (context) => ChatPage(),
         '/weather': (context) => WeatherPage()

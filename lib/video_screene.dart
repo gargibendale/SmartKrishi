@@ -1,3 +1,5 @@
+import 'package:agri/videos_screenh.dart';
+import 'package:agri/videos_screenm.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -64,14 +66,46 @@ class YoutubeLinksScreen extends StatelessWidget {
     }
   }
 
+  void _changeLanguage(BuildContext context, String language) {
+    if (language == 'Hindi') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => YoutubeLinksScreenH()),
+      );
+    } else if (language == 'Marathi') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => YoutubeLinksScreenM()),
+      );
+    } else {
+      print('Language changed to $language');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Agriculture Techniques and Basics'),
+        title: Text('Agriculture Techniques'),
+        backgroundColor: Colors.green.shade900,
+        foregroundColor: Colors.white,
+        actions: [
+          PopupMenuButton<String>(
+            onSelected: (String choice) => _changeLanguage(context, choice),
+            itemBuilder: (BuildContext context) {
+              return {'English', 'Hindi', 'Marathi'}.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(choice),
+                );
+              }).toList();
+            },
+            icon: Icon(Icons.more_vert),
+          ),
+        ],
       ),
       body: Container(
-        color: Colors.white,
+        color: Colors.yellow.shade50,
         child: ListView.builder(
           itemCount: exercises.keys.length,
           itemBuilder: (context, index) {
@@ -95,7 +129,7 @@ class YoutubeLinksScreen extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(12.0),
                       decoration: BoxDecoration(
-                        color: Colors.green.shade900,
+                        color: Colors.green.shade200,
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Row(
@@ -104,7 +138,7 @@ class YoutubeLinksScreen extends StatelessWidget {
                           Flexible(
                             child: Text(
                               video['title']!,
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.black, fontWeight : FontWeight.bold),
                               textAlign: TextAlign.left,
                             ),
                           ),

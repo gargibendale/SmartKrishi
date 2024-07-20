@@ -66,9 +66,14 @@ class _WeatherPageState extends State<WeatherPage> {
       ),
       body: DecoratedBox(
         decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/chatbg6.jpg"),
-            fit: BoxFit.cover,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 255, 255, 255),
+              Colors.green,
+              Color.fromARGB(255, 20, 177, 25)
+            ],
           ),
         ),
         child: Column(
@@ -95,7 +100,7 @@ class _WeatherPageState extends State<WeatherPage> {
                             padding: const EdgeInsets.all(10.0),
                             decoration: BoxDecoration(
                               color: isUserMessage
-                                  ? const Color.fromRGBO(136, 192, 255, 1)
+                                  ? Color.fromARGB(255, 136, 255, 166)
                                   : isPrecautionMessage
                                       ? Colors.yellow.shade100
                                       : const Color.fromARGB(
