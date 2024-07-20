@@ -1,3 +1,5 @@
+import 'package:agri/farmer_feats.dart';
+import 'package:agri/lang_containers.dart';
 import 'package:agri/recommendation.dart';
 import 'package:agri/video_screene.dart';
 import 'package:agri/videos_screenh.dart';
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => GreatFarmersScreen(),
+        '/': (context) => IndianFarmersScreen(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
         '/recommend': (context) => RecommendationPage(),
