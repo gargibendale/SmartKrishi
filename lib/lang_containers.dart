@@ -13,6 +13,7 @@ class _LangContainersState extends State<LangContainers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Column(
         children: [
           LangWidget(displayText: "English", route: '/youtubeE'),
