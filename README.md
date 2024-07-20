@@ -1,4 +1,4 @@
-# agri
+# SmartKrishi
 
 * ML-powered disease detection: Early and accurate diagnosis allows farmers to take preventive measures, reducing reliance on harmful pesticides.
 * Data-driven recommendations: The app analyzes soil composition, weather patterns, and historical data to suggest suitable crops and optimal fertilizer use, promoting resource efficiency.
