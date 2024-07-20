@@ -16,19 +16,21 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _login() async {
     if (_formKey.currentState?.validate() == true) {
       _formKey.currentState?.save();
+      final localContext = context; // Capture the context before the async gap
       try {
         await _auth.signInWithEmailAndPassword(
             email: _email!, password: _password!);
         Navigator.pushReplacement(
-          context,
+          localContext, // Use the captured context
           MaterialPageRoute(
               builder: (context) =>
-                  YouTubeLinksScreen()), // Navigate to VideosScreen
+                  YoutubeLinksScreen()), // Navigate to VideosScreen
         );
       } on FirebaseAuthException catch (e) {
         print(e.message);
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(e.message ?? 'Unknown error occurred')));
+        ScaffoldMessenger.of(localContext)
+            .showSnackBar(// Use the captured context
+                SnackBar(content: Text(e.message ?? 'Unknown error occurred')));
       }
     }
   }
@@ -45,8 +47,8 @@ class _LoginPageState extends State<LoginPage> {
               begin: Alignment.topCenter,
               colors: [
                 Colors.green.shade900,
-                Colors.green.shade800,
-                Colors.green.shade400,
+                Colors.green.shade900,
+                Colors.green.shade900,
               ],
             ),
           ),

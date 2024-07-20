@@ -1,5 +1,7 @@
 import 'package:agri/recommendation.dart';
 import 'package:agri/videos_screen.dart';
+import 'package:agri/videos_screenh.dart';
+import 'package:agri/videos_screenm.dart';
 import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'loginpage.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => YouTubeLinksScreen(),
+        '/': (context) => YoutubeLinksScreenM(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
         '/recommend': (context) => RecommendationPage()
