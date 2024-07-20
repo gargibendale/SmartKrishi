@@ -17,6 +17,7 @@ dependencies:
   animate_do: ^3.3.4
   firebase_auth: ^5.1.2
   http: ^1.2.2
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:

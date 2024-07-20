@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'featured_screen.dart'; // Import the HomeScreen widget
+import 'videos_screen.dart'; // Import the VideosScreen widget
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,14 +17,18 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState?.validate() == true) {
       _formKey.currentState?.save();
       try {
-        await _auth.signInWithEmailAndPassword(email: _email!, password: _password!);
+        await _auth.signInWithEmailAndPassword(
+            email: _email!, password: _password!);
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => FeaturedScreen()), // Navigate to HomeScreen
+          MaterialPageRoute(
+              builder: (context) =>
+                  YouTubeLinksScreen()), // Navigate to VideosScreen
         );
       } on FirebaseAuthException catch (e) {
         print(e.message);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message ?? 'Unknown error occurred')));
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(e.message ?? 'Unknown error occurred')));
       }
     }
   }
@@ -49,15 +53,27 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: 80,),
+              SizedBox(
+                height: 80,
+              ),
               Padding(
                 padding: EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    FadeInUp(duration: Duration(milliseconds: 1000), child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 40))),
-                    SizedBox(height: 10,),
-                    FadeInUp(duration: Duration(milliseconds: 1300), child: Text("Welcome Back", style: TextStyle(color: Colors.white, fontSize: 18))),
+                    FadeInUp(
+                        duration: Duration(milliseconds: 1000),
+                        child: Text("Login",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 40))),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    FadeInUp(
+                        duration: Duration(milliseconds: 1300),
+                        child: Text("Welcome Back",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 18))),
                   ],
                 ),
               ),
@@ -66,25 +82,31 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60)),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(60),
+                        topRight: Radius.circular(60)),
                   ),
                   child: SingleChildScrollView(
                     child: Padding(
                       padding: EdgeInsets.all(30),
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 60,),
+                          SizedBox(
+                            height: 60,
+                          ),
                           FadeInUp(
                             duration: Duration(milliseconds: 1400),
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
-                                boxShadow: [BoxShadow(
-                                  color: Color.fromRGBO(225, 95, 27, .3),
-                                  blurRadius: 20,
-                                  offset: Offset(0, 10),
-                                )],
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(225, 95, 27, .3),
+                                    blurRadius: 20,
+                                    offset: Offset(0, 10),
+                                  )
+                                ],
                               ),
                               child: Form(
                                 key: _formKey,
@@ -93,14 +115,20 @@ class _LoginPageState extends State<LoginPage> {
                                     Container(
                                       padding: EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                color: Colors.grey.shade200)),
                                       ),
                                       child: TextFormField(
-                                        validator: (input) => input?.isEmpty == true ? 'Enter your email' : null,
+                                        validator: (input) =>
+                                            input?.isEmpty == true
+                                                ? 'Enter your email'
+                                                : null,
                                         onSaved: (input) => _email = input,
                                         decoration: InputDecoration(
                                           hintText: "Email or Phone number",
-                                          hintStyle: TextStyle(color: Colors.grey),
+                                          hintStyle:
+                                              TextStyle(color: Colors.grey),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -108,15 +136,21 @@ class _LoginPageState extends State<LoginPage> {
                                     Container(
                                       padding: EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                color: Colors.grey.shade200)),
                                       ),
                                       child: TextFormField(
                                         obscureText: true,
-                                        validator: (input) => input?.isEmpty == true ? 'Enter your password' : null,
+                                        validator: (input) =>
+                                            input?.isEmpty == true
+                                                ? 'Enter your password'
+                                                : null,
                                         onSaved: (input) => _password = input,
                                         decoration: InputDecoration(
                                           hintText: "Password",
-                                          hintStyle: TextStyle(color: Colors.grey),
+                                          hintStyle:
+                                              TextStyle(color: Colors.grey),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -126,9 +160,16 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 40,),
-                          FadeInUp(duration: Duration(milliseconds: 1500), child: Text("Forgot Password?", style: TextStyle(color: Colors.grey))),
-                          SizedBox(height: 40,),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          FadeInUp(
+                              duration: Duration(milliseconds: 1500),
+                              child: Text("Forgot Password?",
+                                  style: TextStyle(color: Colors.grey))),
+                          SizedBox(
+                            height: 40,
+                          ),
                           FadeInUp(
                             duration: Duration(milliseconds: 1600),
                             child: MaterialButton(
@@ -139,18 +180,24 @@ class _LoginPageState extends State<LoginPage> {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               child: Center(
-                                child: Text("Login", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                child: Text("Login",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold)),
                               ),
                             ),
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(
+                            height: 20,
+                          ),
                           FadeInUp(
                             duration: Duration(milliseconds: 1700),
                             child: MaterialButton(
                               onPressed: () {
                                 Navigator.pushNamed(context, '/signup');
                               },
-                              child: Text("Don't have an account? Sign up", style: TextStyle(color: Colors.grey)),
+                              child: Text("Don't have an account? Sign up",
+                                  style: TextStyle(color: Colors.grey)),
                             ),
                           ),
                         ],
