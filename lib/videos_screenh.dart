@@ -51,11 +51,11 @@ class YoutubeLinksScreenH extends StatelessWidget {
     ],
   };
 
-  void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
+  Future<void> _launchUrl(String url) async {
+    try {
+      launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } catch (e) {
+      print(e);
     }
   }
 
@@ -86,7 +86,7 @@ class YoutubeLinksScreenH extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       vertical: 4.0, horizontal: 8.0),
                   child: InkWell(
-                    onTap: () => _launchURL(video['url']!),
+                    onTap: () => _launchUrl(video['url']!),
                     child: Container(
                       padding: EdgeInsets.all(12.0),
                       decoration: BoxDecoration(

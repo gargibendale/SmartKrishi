@@ -75,6 +75,15 @@ class Body extends StatelessWidget {
               // Navigate to crop disease prediction screen
             },
           ),
+          ProductServiceCard(
+            imageUrl: 'assets/fertilizer.jpg',
+            title: 'Youtube Picks',
+            description:
+                'Various youtube links to useful advice in multiple languages',
+            onTap: () {
+              Navigator.pushNamed(context, '/youtubecontainers');
+            },
+          ),
           // Add more ProductServiceCards if needed
         ],
       ),

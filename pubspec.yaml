@@ -31,4 +31,9 @@ flutter:
     - assets/crop.jpg
     - assets/disease.jpg
     - assets/fertilizer.jpg
+    - assets/agricultural_techniques.jpg
+    - assets/crop_selection.jpg
+    - assets/fertilizers.jpg
+    - assets/pesticide_harm.jpg
+    
     
