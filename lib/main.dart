@@ -1,3 +1,4 @@
+import 'package:agri/chat.dart';
 import 'package:agri/farmer_feats.dart';
 import 'package:agri/lang_containers.dart';
 import 'package:agri/recommendation.dart';
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
         '/youtubeM': (context) => YoutubeLinksScreenM(),
         '/youtubeH': (context) => YoutubeLinksScreenH(),
         '/youtubecontainers': (context) => LangContainers(),
-        '/farmerfeats': (context) => IndianFarmersScreen()
+        '/farmerfeats': (context) => IndianFarmersScreen(),
+        '/chat': (context) => ChatPage()
       },
     );
   }

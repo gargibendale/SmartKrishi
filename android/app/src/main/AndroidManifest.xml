@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="agri"
         android:name="${applicationName}"
@@ -27,28 +28,14 @@
              This is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />
-        
-        <!-- Added permissions and configuration for URL launching -->
-        <uses-permission android:name="android.permission.INTERNET"/>
-        
-        <!-- Querying for URL schemes -->
-        <queries>
-            <intent>
-                <action android:name="android.intent.action.VIEW"/>
-                <data android:scheme="http"/>
-                <data android:scheme="https"/>
-            </intent>
-            <intent>
-                <action android:name="android.intent.action.PROCESS_TEXT"/>
-                <data android:mimeType="text/plain"/>
-            </intent>
-
+            android:value="2" />  
+    </application>
+    <queries>
+    <!-- Place inside the <queries> element. -->
         <intent>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.BROWSABLE" />
         <data android:scheme="https" />
         </intent>
-        </queries>
-    </application>
+    </queries>
 </manifest>

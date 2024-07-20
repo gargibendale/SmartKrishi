@@ -93,6 +93,14 @@ class Body extends StatelessWidget {
               Navigator.pushNamed(context, '/farmerfeats');
             },
           ),
+          ProductServiceCard(
+            imageUrl: 'assets/famous farmer.jpg',
+            title: 'AI advisor',
+            description: 'Get agriculture related advice anytime, anywhere',
+            onTap: () {
+              Navigator.pushNamed(context, '/chat');
+            },
+          ),
           // Add more ProductServiceCards if needed
         ],
       ),
