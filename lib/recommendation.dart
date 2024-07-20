@@ -21,31 +21,39 @@ class _RecommendationPageState extends State<RecommendationPage> {
 
   Future<void> _getRecommendation() async {
     if (_formKey.currentState!.validate()) {
-      final response = await http.post(
-        Uri.parse(
-            'http://127.0.0.1:8000/api/recommend/'), // Adjust the URL as needed
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode(<String, dynamic>{
-          'N': int.parse(_nController.text),
-          'P': int.parse(_pController.text),
-          'K': int.parse(_kController.text),
-          'temperature': double.parse(_temperatureController.text),
-          'humidity': double.parse(_humidityController.text),
-          'ph': double.parse(_phController.text),
-          'rainfall': double.parse(_rainfallController.text),
-        }),
-      );
+      try {
+        final response = await http.post(
+          Uri.parse(
+              'https://tightly-daring-killdeer.ngrok-free.app/api/recommend/'), // Adjust the URL as needed
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: jsonEncode(<String, dynamic>{
+            'N': int.parse(_nController.text),
+            'P': int.parse(_pController.text),
+            'K': int.parse(_kController.text),
+            'temperature': double.parse(_temperatureController.text),
+            'humidity': double.parse(_humidityController.text),
+            'ph': double.parse(_phController.text),
+            'rainfall': double.parse(_rainfallController.text),
+          }),
+        );
 
-      if (response.statusCode == 200) {
-        final responseData = json.decode(response.body);
+        if (response.statusCode == 200) {
+          final responseData = json.decode(response.body);
+          setState(() {
+            _recommendedCrop = responseData['recommended_crop'];
+          });
+        } else {
+          print('Failed to get recommendation: ${response.reasonPhrase}');
+          setState(() {
+            _recommendedCrop =
+                'Failed to get recommendation: ${response.reasonPhrase}';
+          });
+        }
+      } catch (e) {
         setState(() {
-          _recommendedCrop = responseData['recommended_crop'];
-        });
-      } else {
-        setState(() {
-          _recommendedCrop = 'Failed to get recommendation';
+          _recommendedCrop = 'Failed to get recommendation: $e';
         });
       }
     }

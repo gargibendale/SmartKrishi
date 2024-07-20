@@ -1,3 +1,4 @@
+import 'package:agri/featured_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  YouTubeLinksScreen()), // Navigate to VideosScreen
+                  FeaturedScreen()), // Navigate to VideosScreen
         );
       } on FirebaseAuthException catch (e) {
         print(e.message);
