@@ -1,3 +1,4 @@
+import 'package:agri/Fertilizer_prediction.dart';
 import 'package:agri/farmer_feats.dart';
 import 'package:agri/lang_containers.dart';
 import 'package:agri/recommendation.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => IndianFarmersScreen(),
+        '/': (context) => PredictorScreen(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
         '/recommend': (context) => RecommendationPage(),
