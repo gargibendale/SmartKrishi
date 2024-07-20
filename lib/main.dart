@@ -1,4 +1,6 @@
+import 'package:agri/lang_containers.dart';
 import 'package:agri/recommendation.dart';
+import 'package:agri/video_screene.dart';
 import 'package:agri/videos_screenh.dart';
 import 'package:agri/videos_screenm.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,11 @@ class MyApp extends StatelessWidget {
         '/': (context) => FeaturedScreen(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
-        '/recommend': (context) => RecommendationPage()
+        '/recommend': (context) => RecommendationPage(),
+        '/youtubeE': (context) => YoutubeLinksScreen(),
+        '/youtubeM': (context) => YoutubeLinksScreenM(),
+        '/youtubeH': (context) => YoutubeLinksScreenH(),
+        '/youtubecontainers': (context) => LangContainers()
       },
     );
   }
