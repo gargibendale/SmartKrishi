@@ -1,16 +1,8 @@
 # agri
 
-A new Flutter project.
+* ML-powered disease detection: Early and accurate diagnosis allows farmers to take preventive measures, reducing reliance on harmful pesticides.
+* Data-driven recommendations: The app analyzes soil composition, weather patterns, and historical data to suggest suitable crops and optimal fertilizer use, promoting resource efficiency.
+* Multilingual content: The app interface and educational materials are available in local languages, ensuring accessibility and bridging the knowledge gap.
+* Sharing success stories: Local farmer case studies inspire knowledge sharing and adoption of innovative practices within communities.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![WhatsApp Image 2024-07-20 at 04 40 24_36e507c3](https://github.com/user-attachments/assets/d5b06b90-9bae-438d-a8e7-ef803bae3649)
