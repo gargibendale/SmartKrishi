@@ -94,7 +94,7 @@ class Body extends StatelessWidget {
             },
           ),
           ProductServiceCard(
-            imageUrl: 'assets/famous farmer.jpg',
+            imageUrl: 'assets/farmerbot.jpg',
             title: 'AI advisor',
             description: 'Get agriculture related advice anytime, anywhere',
             onTap: () {
