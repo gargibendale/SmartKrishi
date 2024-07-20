@@ -1,3 +1,4 @@
+import 'package:agri/Fertilizer_prediction.dart';
 import 'package:agri/chat.dart';
 import 'package:agri/farmer_feats.dart';
 import 'package:agri/lang_containers.dart';
@@ -42,8 +43,7 @@ class MyApp extends StatelessWidget {
         '/youtubeM': (context) => YoutubeLinksScreenM(),
         '/youtubeH': (context) => YoutubeLinksScreenH(),
         '/youtubecontainers': (context) => LangContainers(),
-        '/farmerfeats': (context) => IndianFarmersScreen(),
-        '/chat': (context) => ChatPage()
+        '/farmerfeats': (context) => IndianFarmersScreen()
       },
     );
   }
