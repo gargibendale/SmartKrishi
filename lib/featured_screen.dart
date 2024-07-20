@@ -53,7 +53,9 @@ class Body extends StatelessWidget {
             title: 'Crop Recommendation',
             description:
                 'Recommendation about the type of crops to be cultivated which is best suited for the respective conditions',
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, '/recommend');
+            },
           ),
           ProductServiceCard(
             imageUrl: 'assets/fertilizer.jpg',

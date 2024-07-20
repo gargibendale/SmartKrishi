@@ -7,7 +7,6 @@ import 'signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'videos_screen.dart';
 import 'featured_screen.dart';
-import 'info_sreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => YouTubeLinksScreen(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
+        '/recommend': (context) => RecommendationPage()
       },
     );
   }
