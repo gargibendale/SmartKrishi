@@ -1,0 +1,14 @@
+{
+    "hello": "नमस्ते,\nशुभ प्रभात",
+    "products_services": "उत्पाद और सेवाएँ",
+    "crop_recommendation": "फसल सिफारिश",
+    "crop_recommendation_description": "संबंधित परिस्थितियों के लिए सर्वोत्तम उपयुक्त फसलों के बारे में सिफारिश",
+    "fertilizer_prediction": "उर्वरक पूर्वानुमान",
+    "fertilizer_prediction_description": "विशिष्ट मिट्टी और अनुशंसित फसल के लिए सर्वोत्तम उपयुक्त उर्वरक के बारे में सिफारिश",
+    "crop_disease": "फसल रोग",
+    "crop_disease_description": "फसल रोग का नाम और कारणों का पूर्वानुमान और उसे ठीक करने के सुझाव",
+    "youtube_picks": "यूट्यूब चयन",
+    "youtube_picks_description": "कई भाषाओं में उपयोगी सलाह के लिए विभिन्न यूट्यूब लिंक",
+    "search_your_topic": "अपने विषय की खोज करें"
+  }
+  

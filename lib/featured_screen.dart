@@ -1,6 +1,18 @@
+import 'package:agri/chat.dart';
+import 'package:agri/farmer_feats.dart';
+import 'package:agri/fertilizer_prediction.dart';
+import 'package:agri/lang_containers.dart';
+import 'package:agri/localizations/app_localizations.dart';
 import 'package:agri/recommendation.dart';
+import 'package:agri/videos_screen.dart';
+import 'package:agri/videos_screenh.dart';
+import 'package:agri/videos_screenm.dart';
+import 'package:agri/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'language_selection.dart';
 
 class FeaturedScreen extends StatefulWidget {
   const FeaturedScreen({Key? key}) : super(key: key);
@@ -10,18 +22,87 @@ class FeaturedScreen extends StatefulWidget {
 }
 
 class _FeaturedScreenState extends State<FeaturedScreen> {
+  Locale _locale = Locale('en'); // Default locale
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSelectedLanguage();
+  }
+
+  Future<void> _loadSelectedLanguage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String languageCode = prefs.getString('selected_language') ?? 'en';
+    setState(() {
+      _locale = Locale(languageCode);
+    });
+
+    // Trigger a rebuild of localization
+    await AppLocalizations.delegate.load(_locale);
+  }
+
+  Future<void> _showLanguageSelectionDialog() async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return LanguageSelectionDialog(
+          onLanguageSelected: (String languageCode) async {
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            await prefs.setString('selected_language', languageCode);
+
+            setState(() {
+              _locale = Locale(languageCode);
+            });
+
+            // Reload localization
+            await AppLocalizations.delegate.load(_locale);
+          },
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.light,
-      child: Scaffold(
-        body: Column(
-          children: const [
-            CustomAppBar(),
-            Expanded(child: Body()), // Add Expanded here
-          ],
+    return MaterialApp(
+      locale: _locale,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'),
+        Locale('hi'),
+        Locale('mr'),
+        Locale('ta'),
+      ],
+      home: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light,
+        child: Scaffold(
+          body: Column(
+            children: [
+              CustomAppBar(
+                onLanguageButtonPressed: _showLanguageSelectionDialog,
+              ),
+              Expanded(child: Body()),
+            ],
+          ),
         ),
       ),
+      routes: {
+         '/recommend': (context) => RecommendationPage(),
+        '/youtubecontainers': (context) => LangContainers(),
+        '/farmerfeats': (context) => IndianFarmersScreen(),
+        '/fertilizer': (context) => PredictorScreen(),
+        '/chat': (context) => ChatPage(),
+        '/youtubeE': (context) => YoutubeLinksScreen(),
+        '/youtubeM': (context) => YoutubeLinksScreenM(),
+        '/youtubeH': (context) => YoutubeLinksScreenH(),
+        '/weather': (context) => WeatherPage()
+      },
     );
   }
 }
@@ -31,8 +112,9 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     return SingleChildScrollView(
-      // Make the whole Body scrollable
       child: Column(
         children: [
           Padding(
@@ -41,45 +123,60 @@ class Body extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Features",
+                  localizations?.translate('products_services') ??
+                      'Products & Services',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],
             ),
           ),
-          // Add the ProductServiceCards here
           ProductServiceCard(
             imageUrl: 'assets/crop.jpg',
-            title: 'Crop Recommendation',
-            description:
-                'Recommendation about the type of crops to be cultivated which is best suited for the respective conditions',
+            title: localizations?.translate('crop_recommendation') ??
+                localizations?.translate('Crop Recommendation') ??
+                '',
+            description: localizations
+                    ?.translate('crop_recommendation_description') ??
+                localizations?.translate(
+                    'Recommendation about the type of crops to be cultivated which is best suited for the respective conditions') ??
+                '',
             onTap: () {
               Navigator.pushNamed(context, '/recommend');
             },
           ),
           ProductServiceCard(
             imageUrl: 'assets/fertilizer.jpg',
-            title: 'Fertilizer Prediction',
-            description:
-                'Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop',
+            title: localizations?.translate('fertilizer_prediction') ??
+                localizations?.translate('Fertilizer Prediction') ??
+                '',
+            description: localizations
+                    ?.translate('fertilizer_prediction_description') ??
+                localizations?.translate(
+                    'Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop') ??
+                '',
             onTap: () {
               Navigator.pushNamed(context, '/fertilizer');
             },
           ),
           ProductServiceCard(
             imageUrl: 'assets/disease.jpg',
-            title: 'Crop Disease',
-            description:
-                'Predicting the name and causes of crop disease and suggestions to cure it',
+            title: localizations?.translate('crop_disease') ?? 'Crop Disease',
+            description: localizations?.translate('crop_disease_description') ??
+                localizations?.translate(
+                    'Predicting the name and causes of the crop disease and suggestions to cure it') ??
+                '',
             onTap: () {
               Navigator.pushNamed(context, '/chat');
             },
           ),
           ProductServiceCard(
-            imageUrl: 'assets/crop.jpg',
-            title: 'Youtube Picks',
-            description:
-                'Various youtube links to useful advice in multiple languages',
+            imageUrl: 'assets/fertilizer.jpg',
+            title: localizations?.translate('youtube_picks') ?? 'Youtube Picks',
+            description: localizations
+                    ?.translate('youtube_picks_description') ??
+                localizations?.translate(
+                    'Various youtube links to useful advice in multiple languages') ??
+                '',
             onTap: () {
               Navigator.pushNamed(context, '/youtubecontainers');
             },
@@ -94,11 +191,12 @@ class Body extends StatelessWidget {
             },
           ),
           ProductServiceCard(
-            imageUrl: 'assets/farmerbot.jpg',
-            title: 'AI advisor',
-            description: 'Get agriculture related advice anytime, anywhere',
+            imageUrl: 'assets/weather.jpg',
+            title: 'Weather Chat',
+            description:
+                'Know the weather and get recommendations as easily as talking to a friend.',
             onTap: () {
-              Navigator.pushNamed(context, '/chat');
+              Navigator.pushNamed(context, '/weather');
             },
           ),
           // Add more ProductServiceCards if needed
@@ -107,6 +205,7 @@ class Body extends StatelessWidget {
     );
   }
 }
+
 
 class ProductServiceCard extends StatelessWidget {
   final String imageUrl;
@@ -171,9 +270,10 @@ class ProductServiceCard extends StatelessWidget {
 }
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    Key? key,
-  }) : super(key: key);
+  final VoidCallback onLanguageButtonPressed;
+
+  const CustomAppBar({Key? key, required this.onLanguageButtonPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -203,8 +303,11 @@ class CustomAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hello,\nGood Morning",
-                style: Theme.of(context).textTheme.headlineSmall,
+                "SmartKrishi",
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      color: Colors.white, // Set text color to white
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               IconButton(
                 icon: Icon(Icons.notifications),
@@ -212,44 +315,50 @@ class CustomAppBar extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 20,
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 5,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Text(
+                  "Welcome to SmartKrishi",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: onLanguageButtonPressed,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 5,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text(
+                    "Change Language",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          const SearchTextField(),
         ],
-      ),
-    );
-  }
-}
-
-class SearchTextField extends StatelessWidget {
-  const SearchTextField({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        prefixIcon: const Icon(
-          Icons.search,
-          color: Colors.grey,
-          size: 26,
-        ),
-        suffixIcon: const Icon(
-          Icons.mic,
-          color: Colors.green,
-          size: 26,
-        ),
-        floatingLabelBehavior: FloatingLabelBehavior.never,
-        labelText: "Search your topic",
-        labelStyle: const TextStyle(color: Colors.grey),
-        filled: true,
-        fillColor: Colors.white,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40),
-        ),
-        isDense: true,
       ),
     );
   }

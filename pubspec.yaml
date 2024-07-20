@@ -21,6 +21,7 @@ dependencies:
   google_generative_ai: ^0.4.3
   image_picker: ^1.1.2
   flutter_markdown: ^0.7.3
+  shared_preferences: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -42,3 +43,5 @@ flutter:
     - assets/farmer phone.jpg
     - assets/farmerphone.jpg
     - assets/farmerbot.jpg
+    - assets/weather.jpg
+    - assets/homepage.jpg

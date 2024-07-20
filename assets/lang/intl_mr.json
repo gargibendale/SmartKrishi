@@ -1,0 +1,14 @@
+{
+    "hello": "नमस्कार,\nशुभ सकाळ",
+    "products_services": "उत्पादने आणि सेवा",
+    "crop_recommendation": "पिकांची शिफारस",
+    "crop_recommendation_description": "संबंधित परिस्थितीसाठी सर्वोत्तम योग्य पिकांबद्दल शिफारस",
+    "fertilizer_prediction": "खते पूर्वानुमान",
+    "fertilizer_prediction_description": "विशिष्ट माती आणि शिफारस केलेल्या पिकासाठी सर्वोत्तम योग्य खताबद्दल शिफारस",
+    "crop_disease": "पिकांचे रोग",
+    "crop_disease_description": "पिकांच्या रोगाचे नाव आणि कारणांचे अंदाज आणि त्याचे उपाय",
+    "youtube_picks": "यूट्यूब निवडी",
+    "youtube_picks_description": "विविध भाषांमध्ये उपयुक्त सल्ल्यासाठी विविध यूट्यूब लिंक",
+    "search_your_topic": "तुमचा विषय शोधा"
+  }
+  

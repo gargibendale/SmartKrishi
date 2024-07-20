@@ -1,6 +1,12 @@
 {
-    "title": "बहुभाषी ऐप",
-    "welcome_message": "बहुभाषी ऐप में आपका स्वागत है!",
-    "choose_language": "अपनी भाषा चुनें"
-  }
-  
+  "Hello":"नमस्ते",
+  "products_services": "उत्पाद एवं सेवाएँ",
+  "crop_recommendation": "फसल सिफारिश",
+  "Recommendation about the type of crops to be cultivated which is best suited for the respective conditions": "उपयुक्त परिस्थितियों के लिए सबसे उपयुक्त फसलें उगाने के बारे में सिफारिश",
+  "fertilizer_prediction": "उर्वरक भविष्यवाणी",
+  "Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop": "विशिष्ट मिट्टी और अनुशंसित फसल के लिए सबसे उपयुक्त उर्वरक के प्रकार के बारे में सिफारिश",
+  "crop_disease": "फसल रोग",
+  "Predicting the name and causes of the crop disease and suggestions to cure it": "फसल रोग के नाम और कारणों की भविष्यवाणी और इसे ठीक करने के सुझाव",
+  "youtube_picks": "यूट्यूब पसंद",
+  "Various youtube links to useful advice in multiple languages": "विभिन्न भाषाओं में उपयोगी सलाह के लिए विभिन्न यूट्यूब लिंक"
+}

@@ -1,0 +1,13 @@
+{
+    "Hello":"नमस्कार",
+    "products_services": "उत्पादने आणि सेवा",
+    "crop_recommendation": "पिकांच्या शिफारसी",
+    "Recommendation about the type of crops to be cultivated which is best suited for the respective conditions": "संबंधित परिस्थितीसाठी सर्वात योग्य पिकांच्या प्रकारांची शिफारस",
+    "fertilizer_prediction": "खतांची शिफारस",
+    "Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop": "विशिष्ट माती आणि सुचवलेल्या पिकासाठी योग्य असलेल्या खतांची शिफारस",
+    "crop_disease": "पीक रोग",
+    "Predicting the name and causes of the crop disease and suggestions to cure it": "पीक रोगाचे नाव आणि कारणे यांचे भाकीत आणि त्यावरील उपचारांच्या शिफारसी",
+    "youtube_picks": "यूट्यूब निवडी",
+    "Various youtube links to useful advice in multiple languages": "विविध भाषांमध्ये उपयुक्त सल्ल्यासाठी विविध यूट्यूब लिंक"
+  }
+  

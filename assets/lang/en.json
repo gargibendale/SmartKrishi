@@ -1,6 +1,12 @@
 {
-    "title": "Multi-language App",
-    "welcome_message": "Welcome to the multi-language app!",
-    "choose_language": "Choose your language"
-  }
-  
+  "Hello":"Hello",
+  "products_services": "Products & Services",
+  "crop_recommendation": "Crop Recommendation",
+  "Recommendation about the type of crops to be cultivated which is best suited for the respective conditions":"Recommendation about the type of crops to be cultivated which is best suited for the respective conditions",
+  "fertilizer_prediction": "Fertilizer Prediction",
+  "Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop": "Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop",
+  "crop_disease": "Crop Disease",
+  "Predicting the name and causes of the crop disease and suggestions to cure it": "Predicting the name and causes of the crop disease and suggestions to cure it",
+  "youtube_picks": "Youtube Picks",
+  "Various youtube links to useful advice in multiple languages": "Various youtube links to useful advice in multiple languages"
+}
