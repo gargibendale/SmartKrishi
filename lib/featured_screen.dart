@@ -41,7 +41,7 @@ class Body extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Products & Services",
+                  "Features",
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],
@@ -76,12 +76,21 @@ class Body extends StatelessWidget {
             },
           ),
           ProductServiceCard(
-            imageUrl: 'assets/fertilizer.jpg',
+            imageUrl: 'assets/crop.jpg',
             title: 'Youtube Picks',
             description:
                 'Various youtube links to useful advice in multiple languages',
             onTap: () {
               Navigator.pushNamed(context, '/youtubecontainers');
+            },
+          ),
+          ProductServiceCard(
+            imageUrl: 'assets/famous farmer.jpg',
+            title: 'Famous Indian Farmers',
+            description:
+                'Indian personalities who helped shape the farming practices of India',
+            onTap: () {
+              Navigator.pushNamed(context, '/farmerfeats');
             },
           ),
           // Add more ProductServiceCards if needed

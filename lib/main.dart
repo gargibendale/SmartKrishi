@@ -33,14 +33,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => IndianFarmersScreen(),
+        '/': (context) => FeaturedScreen(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
         '/recommend': (context) => RecommendationPage(),
         '/youtubeE': (context) => YoutubeLinksScreen(),
         '/youtubeM': (context) => YoutubeLinksScreenM(),
         '/youtubeH': (context) => YoutubeLinksScreenH(),
-        '/youtubecontainers': (context) => LangContainers()
+        '/youtubecontainers': (context) => LangContainers(),
+        '/farmerfeats': (context) => IndianFarmersScreen()
       },
     );
   }

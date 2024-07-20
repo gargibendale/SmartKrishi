@@ -18,6 +18,7 @@ dependencies:
   firebase_auth: ^5.1.2
   http: ^1.2.2
   url_launcher: ^6.3.0
+  google_generative_ai: ^0.4.3
 
 dev_dependencies:
   flutter_test:
@@ -35,5 +36,6 @@ flutter:
     - assets/crop_selection.jpg
     - assets/fertilizers.jpg
     - assets/pesticide_harm.jpg
-    
-    
+    - assets/famous farmer.jpg
+    - assets/farmer phone.jpg
+    - assets/farmerphone.jpg
