@@ -64,96 +64,96 @@ class _WeatherPageState extends State<WeatherPage> {
       appBar: AppBar(
         title: const Text('Weather Chat'),
       ),
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 255, 255, 255),
-              Colors.green,
-              Color.fromARGB(255, 20, 177, 25)
-            ],
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.6,
+              child: Image.asset(
+                'assets/weather1.jpg', // Use Image.asset for local assets
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: _chatHistoryDisplay.length,
-                itemBuilder: (context, index) {
-                  final message = _chatHistoryDisplay[index]['text']!;
-                  final isUserMessage =
-                      _chatHistoryDisplay[index]['role'] == 'user';
-                  final isPrecautionMessage =
-                      _chatHistoryDisplay[index]['role'] == 'precaution';
-                  return Row(
-                    mainAxisAlignment: isUserMessage
-                        ? MainAxisAlignment.end
-                        : MainAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(10.0),
-                            decoration: BoxDecoration(
-                              color: isUserMessage
-                                  ? Color.fromARGB(255, 136, 255, 166)
-                                  : isPrecautionMessage
-                                      ? Colors.yellow.shade100
-                                      : const Color.fromARGB(
-                                          255, 255, 255, 255),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10.0)),
-                            ),
-                            child: Text(
-                              message,
-                              style: TextStyle(
+          Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: _chatHistoryDisplay.length,
+                  itemBuilder: (context, index) {
+                    final message = _chatHistoryDisplay[index]['text']!;
+                    final isUserMessage =
+                        _chatHistoryDisplay[index]['role'] == 'user';
+                    final isPrecautionMessage =
+                        _chatHistoryDisplay[index]['role'] == 'precaution';
+                    return Row(
+                      mainAxisAlignment: isUserMessage
+                          ? MainAxisAlignment.end
+                          : MainAxisAlignment.start,
+                      children: [
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                                20.0, 10.0, 20.0, 10.0),
+                            child: Container(
+                              padding: const EdgeInsets.all(10.0),
+                              decoration: BoxDecoration(
                                 color: isUserMessage
-                                    ? const Color.fromARGB(255, 37, 21, 65)
-                                    : Colors.black,
+                                    ? Color.fromARGB(255, 255, 203, 204)
+                                    : isPrecautionMessage
+                                        ? Colors.yellow.shade100
+                                        : const Color.fromARGB(
+                                            255, 255, 255, 255),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10.0)),
+                              ),
+                              child: Text(
+                                message,
+                                style: TextStyle(
+                                  color: isUserMessage
+                                      ? const Color.fromARGB(255, 37, 21, 65)
+                                      : Colors.black,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      style: const TextStyle(
-                        color: Colors.black,
-                      ),
-                      controller: _messageController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Type a city name...',
-                        labelStyle: TextStyle(
-                          color: Color.fromARGB(255, 14, 43, 86),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        style: const TextStyle(
+                          color: Colors.black,
+                        ),
+                        controller: _messageController,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Type a city name...',
+                          labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 14, 43, 86),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: _handleSendMessage,
-                    icon: const Icon(Icons.send),
-                    color: const Color.fromARGB(255, 10, 50, 83),
-                  ),
-                ],
+                    IconButton(
+                      onPressed: _handleSendMessage,
+                      icon: const Icon(Icons.send),
+                      color: const Color.fromARGB(255, 10, 50, 83),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }

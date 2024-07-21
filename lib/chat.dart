@@ -90,8 +90,8 @@ class _ChatPageState extends State<ChatPage> {
           Positioned.fill(
             child: Opacity(
               opacity: 0.6,
-              child: Image.network(
-                'assets/sapling.jpg', // Replace with your background image path
+              child: Image.asset(
+                'assets/sapling.jpg', // Use Image.asset for local assets
                 fit: BoxFit.cover,
               ),
             ),
@@ -154,12 +154,12 @@ class _ChatPageState extends State<ChatPage> {
                             child: MarkdownBody(
                               data: _response,
                               styleSheet: MarkdownStyleSheet(
-                                p: TextStyle(color: Colors.black),
+                                p: const TextStyle(color: Colors.black),
                               ),
                             ),
                           )
                         : const Text('No response yet.'),
-                    SizedBox(
+                    const SizedBox(
                       height: 1000,
                     )
                   ],

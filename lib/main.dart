@@ -43,13 +43,12 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/feature': (context) => FeaturedScreen(),
         '/signup': (context) => SignUpPage(),
-
-        '/recommend': (context) => RecommendationPage(onLanguageChanged: (Locale value) {  },),
+        '/recommend': (context) => RecommendationPage(onLanguageChanged: (Locale value) {}),
         '/youtubeE': (context) => YoutubeLinksScreen(),
         '/youtubeM': (context) => YoutubeLinksScreenM(),
         '/youtubeH': (context) => YoutubeLinksScreenH(),
         '/youtubecontainers': (context) => LangContainers(),
-        '/farmerfeats': (context) => farmerfeats(onLanguageChanged: (String ) {  },),
+        '/farmerfeats': (context) => farmerfeats(onLanguageChanged: (String) {}),
         '/fertilizer': (context) => PredictorScreen(),
         '/chat': (context) => ChatPage(),
         '/weather': (context) => WeatherPage()
@@ -106,5 +105,3 @@ class _InitialScreenState extends State<InitialScreen> {
     );
   }
 }
-
-

@@ -89,14 +89,14 @@ class _SignUpPageState extends State<SignUpPage> {
                                     Container(
                                       padding: EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                        border: Border(bottom: BorderSide(color: Colors.black)),
                                       ),
                                       child: TextFormField(
                                         validator: (input) => input?.isEmpty == true ? 'Enter your first name' : null,
                                         onSaved: (input) => _firstName = input,
                                         decoration: InputDecoration(
                                           hintText: "First Name",
-                                          hintStyle: TextStyle(color: Colors.grey),
+                                          hintStyle: TextStyle(color: Colors.black),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -104,14 +104,14 @@ class _SignUpPageState extends State<SignUpPage> {
                                     Container(
                                       padding: EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                        border: Border(bottom: BorderSide(color: Colors.black)),
                                       ),
                                       child: TextFormField(
                                         validator: (input) => input?.isEmpty == true ? 'Enter your last name' : null,
                                         onSaved: (input) => _lastName = input,
                                         decoration: InputDecoration(
                                           hintText: "Last Name",
-                                          hintStyle: TextStyle(color: Colors.grey),
+                                          hintStyle: TextStyle(color: Colors.black),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -119,14 +119,14 @@ class _SignUpPageState extends State<SignUpPage> {
                                     Container(
                                       padding: EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                        border: Border(bottom: BorderSide(color: Colors.black)),
                                       ),
                                       child: TextFormField(
                                         validator: (input) => input?.isEmpty == true ? 'Enter your email' : null,
                                         onSaved: (input) => _email = input,
                                         decoration: InputDecoration(
                                           hintText: "Email",
-                                          hintStyle: TextStyle(color: Colors.grey),
+                                          hintStyle: TextStyle(color: Colors.black),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -134,7 +134,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     Container(
                                       padding: EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                        border: Border(bottom: BorderSide(color: Colors.black)),
                                       ),
                                       child: TextFormField(
                                         obscureText: true,
@@ -142,7 +142,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         onSaved: (input) => _password = input,
                                         decoration: InputDecoration(
                                           hintText: "Password",
-                                          hintStyle: TextStyle(color: Colors.grey),
+                                          hintStyle: TextStyle(color: Colors.black),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -174,7 +174,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               onPressed: () {
                                 Navigator.pushNamed(context, '/login');
                               },
-                              child: Text("Already have an account? Login", style: TextStyle(color: Colors.grey)),
+                              child: Text("Already have an account? Login", style: TextStyle(color: Colors.black)),
                             ),
                           ),
                         ],

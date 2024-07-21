@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                                       decoration: BoxDecoration(
                                         border: Border(
                                             bottom: BorderSide(
-                                                color: Colors.grey.shade200)),
+                                                color: Colors.black)),
                                       ),
                                       child: TextFormField(
                                         validator: (input) =>
@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                                         decoration: InputDecoration(
                                           hintText: "Email or Phone number",
                                           hintStyle:
-                                              TextStyle(color: Colors.grey),
+                                              TextStyle(color: Colors.black),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                                       decoration: BoxDecoration(
                                         border: Border(
                                             bottom: BorderSide(
-                                                color: Colors.grey.shade200)),
+                                                color: Colors.black)),
                                       ),
                                       child: TextFormField(
                                         obscureText: true,
@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                                         decoration: InputDecoration(
                                           hintText: "Password",
                                           hintStyle:
-                                              TextStyle(color: Colors.grey),
+                                              TextStyle(color: Colors.black),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -168,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                           FadeInUp(
                               duration: Duration(milliseconds: 1500),
                               child: Text("Forgot Password?",
-                                  style: TextStyle(color: Colors.grey))),
+                                  style: TextStyle(color: Colors.black))),
                           SizedBox(
                             height: 40,
                           ),
@@ -199,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.pushNamed(context, '/signup');
                               },
                               child: Text("Don't have an account? Sign up",
-                                  style: TextStyle(color: Colors.grey)),
+                                  style: TextStyle(color: Colors.black)),
                             ),
                           ),
                         ],
