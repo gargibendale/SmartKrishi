@@ -47,7 +47,19 @@
     "enter_rainfall": "कृपया पर्जन्य मूल्य प्रविष्ट करा",
     "get_recommendation": "शिफारस मिळवा",
     "no_recommendation_yet": "अद्याप शिफारस नाही",
-    "recommended_crop": "शिफारस केलेले पीक: "
+    "recommended_crop": "शिफारस केलेले पीक: ",
+    
+      "title": "खत भविष्यवक्ता",
+
+      "moisture": "आर्द्रता",
+      "soil_type": "मातीचा प्रकार",
+      "crop_type": "पीक प्रकार",
+
+      "phosphorous": "फॉस्फरस",
+      "predict": "भविष्यवाणी",
+      "prediction": "भविष्यवाणी"
+    
+    
   
   
   }

@@ -56,7 +56,25 @@
         "enter_rainfall": "कृपया वर्षा मूल्य दर्ज करें",
         "get_recommendation": "शिफारिश प्राप्त करें",
         "no_recommendation_yet": "अभी तक कोई सिफारिश नहीं",
-        "recommended_crop": "सिफारिश की गई फसल: "
+        "recommended_crop": "सिफारिश की गई फसल: ",
+        
+          "title": "उर्वरक भविष्यवक्ता",
+        
+          "moisture": "नमी",
+          "soil_type": "मिट्टी का प्रकार",
+          "crop_type": "फसल प्रकार",
+          
+          "phosphorous": "फॉस्फोरस",
+          "predict": "भविष्यवाणी",
+          "prediction": "भविष्यवाणी",
+          "Loamy": "दोमट",
+          "Sandy": "रेतीली",
+          "Clayey": "चिकनी",
+          "Black": "काली",
+          "Red": "लाल"
+
+      
+        
       
       
 }

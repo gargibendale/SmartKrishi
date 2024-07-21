@@ -1,5 +1,6 @@
-import 'api/api_service.dart';
 import 'package:flutter/material.dart';
+import 'api/api_service.dart';
+import 'localizations/app_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +11,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: PredictorScreen(),
+      localizationsDelegates: [
+        // Add localization delegates here
+      ],
+      supportedLocales: [
+        Locale('en', ''), // English
+        Locale('mr', ''), // Marathi
+        Locale('hi', ''), // Hindi
+      ],
     );
   }
 }
@@ -31,6 +40,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
   String? selectedSoilType;
   String? selectedCropType;
   String prediction = '';
+  Locale _locale = Locale('en');
 
   Map<String, int> soilDict = {
     'Loamy (1)': 1,
@@ -95,45 +105,52 @@ class _PredictorScreenState extends State<PredictorScreen> {
 
     switch (fertilizer) {
       case 'Urea':
-        benefits = '1. High nitrogen content (46%): Urea is one of the most concentrated nitrogenous fertilizers, essential for vegetative growth and green, leafy development in crops.\n'
-                   '2. Cost-effective: Urea is relatively inexpensive compared to other nitrogen sources.\n'
-                   '3. Versatile: Can be used on a wide range of crops.';
+        benefits =
+            '1. High nitrogen content (46%): Urea is one of the most concentrated nitrogenous fertilizers, essential for vegetative growth and green, leafy development in crops.\n'
+            '2. Cost-effective: Urea is relatively inexpensive compared to other nitrogen sources.\n'
+            '3. Versatile: Can be used on a wide range of crops.';
         measures = '1. Avoid direct contact with seeds.\n'
-                   '2. Incorporate into soil.\n'
-                   '3. Use during growing season.';
+            '2. Incorporate into soil.\n'
+            '3. Use during growing season.';
         break;
       case 'DAP':
-        benefits = '1. Balanced nutrients: Contains both nitrogen (18%) and phosphorus (46%), promoting root development and early plant growth.\n'
-                   '2. Easy handling and storage: Less hygroscopic compared to other fertilizers.';
+        benefits =
+            '1. Balanced nutrients: Contains both nitrogen (18%) and phosphorus (46%), promoting root development and early plant growth.\n'
+            '2. Easy handling and storage: Less hygroscopic compared to other fertilizers.';
         measures = '1. Use as a starter fertilizer.\n'
-                   '2. Avoid over-application.';
+            '2. Avoid over-application.';
         break;
       case '28-28':
-        benefits = '1. Equal parts nitrogen and phosphorus (28% each), supporting both vegetative growth and root development.';
+        benefits =
+            '1. Equal parts nitrogen and phosphorus (28% each), supporting both vegetative growth and root development.';
         measures = '1. Appropriate for initial and mid-growth stages.\n'
-                   '2. Conduct soil tests.';
+            '2. Conduct soil tests.';
         break;
       case '14-35-14':
-        benefits = '1. High phosphorus content: Promotes strong root systems and early plant vigor, critical during the early growth stages.\n'
-                   '2. Balanced nitrogen and potassium: Supports overall plant health and stress resistance.';
+        benefits =
+            '1. High phosphorus content: Promotes strong root systems and early plant vigor, critical during the early growth stages.\n'
+            '2. Balanced nitrogen and potassium: Supports overall plant health and stress resistance.';
         measures = '1. Use for root development.\n'
-                   '2. Monitor application rates.';
+            '2. Monitor application rates.';
         break;
       case '20-20':
-        benefits = '1. Balanced nutrients: Provides equal parts nitrogen and phosphorus (20% each), supporting overall plant health and growth.';
+        benefits =
+            '1. Balanced nutrients: Provides equal parts nitrogen and phosphorus (20% each), supporting overall plant health and growth.';
         measures = '1. Versatile application: Suitable for various crops and growth stages.\n'
-                   '2. Combine with potassium sources if needed.';
+            '2. Combine with potassium sources if needed.';
         break;
       case '17-17-17':
-        benefits = '1. Equal parts of nitrogen, phosphorus, and potassium (17% each), providing a comprehensive nutrient profile for crops.';
+        benefits =
+            '1. Equal parts of nitrogen, phosphorus, and potassium (17% each), providing a comprehensive nutrient profile for crops.';
         measures = '1. Broad-spectrum use: Ideal for use throughout the growing season.\n'
-                   '2. Soil testing: Regularly test soil to adjust fertilizer application as needed.';
+            '2. Soil testing: Regularly test soil to adjust fertilizer application as needed.';
         break;
       case '10-26-26':
-        benefits = '1. High phosphorus and potassium: Supports root development and enhances fruit and flower production.\n'
-                   '2. Balanced with nitrogen: Provides adequate nitrogen for vegetative growth.';
+        benefits =
+            '1. High phosphorus and potassium: Supports root development and enhances fruit and flower production.\n'
+            '2. Balanced with nitrogen: Provides adequate nitrogen for vegetative growth.';
         measures = '1. Apply at flowering and fruiting stages.\n'
-                   '2. Avoid excessive nitrogen.';
+            '2. Avoid excessive nitrogen.';
         break;
       default:
         benefits = 'Unknown fertilizer type.';
@@ -175,9 +192,11 @@ class _PredictorScreenState extends State<PredictorScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fertilizer Predictor'),
+        title: Text(('title')),
         backgroundColor: Colors.green.shade900,
         foregroundColor: Colors.white,
       ),
@@ -190,7 +209,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
               TextField(
                 controller: temperatureController,
                 decoration: InputDecoration(
-                  labelText: 'Temperature',
+                  labelText: localizations.translate('temperature'),
                   labelStyle: TextStyle(color: Colors.green.shade900),
                 ),
                 keyboardType: TextInputType.number,
@@ -199,7 +218,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
               TextField(
                 controller: humidityController,
                 decoration: InputDecoration(
-                  labelText: 'Humidity',
+                  labelText: localizations.translate('humidity'),
                   labelStyle: TextStyle(color: Colors.green.shade900),
                 ),
                 keyboardType: TextInputType.number,
@@ -208,7 +227,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
               TextField(
                 controller: moistureController,
                 decoration: InputDecoration(
-                  labelText: 'Moisture',
+                  labelText: localizations.translate('moisture'),
                   labelStyle: TextStyle(color: Colors.green.shade900),
                 ),
                 keyboardType: TextInputType.number,
@@ -228,7 +247,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
                   });
                 },
                 decoration: InputDecoration(
-                  labelText: 'Soil Type',
+                  labelText: localizations.translate('soil_type'),
                   labelStyle: TextStyle(color: Colors.green.shade900),
                 ),
                 style: TextStyle(color: Colors.green.shade900),
@@ -247,7 +266,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
                   });
                 },
                 decoration: InputDecoration(
-                  labelText: 'Crop Type',
+                  labelText: localizations.translate('crop_type'),
                   labelStyle: TextStyle(color: Colors.green.shade900),
                 ),
                 style: TextStyle(color: Colors.green.shade900),
@@ -255,7 +274,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
               TextField(
                 controller: nitrogenController,
                 decoration: InputDecoration(
-                  labelText: 'Nitrogen',
+                  labelText: localizations.translate('nitrogen'),
                   labelStyle: TextStyle(color: Colors.green.shade900),
                 ),
                 keyboardType: TextInputType.number,
@@ -264,7 +283,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
               TextField(
                 controller: potassiumController,
                 decoration: InputDecoration(
-                  labelText: 'Potassium',
+                  labelText: localizations.translate('potassium'),
                   labelStyle: TextStyle(color: Colors.green.shade900),
                 ),
                 keyboardType: TextInputType.number,
@@ -273,7 +292,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
               TextField(
                 controller: phosphorousController,
                 decoration: InputDecoration(
-                  labelText: 'Phosphorous',
+                  labelText: localizations.translate('phosphorous'),
                   labelStyle: TextStyle(color: Colors.green.shade900),
                 ),
                 keyboardType: TextInputType.number,
@@ -283,13 +302,14 @@ class _PredictorScreenState extends State<PredictorScreen> {
               ElevatedButton(
                 onPressed: getPrediction,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green.shade900, // background (button) color
-                  foregroundColor: Colors.white, // foreground (text) color
+                  backgroundColor: Colors.green.shade900,
+                  foregroundColor: Colors.white,
                 ),
-                child: Text('Predict'),
+                child: Text(('predict')),
               ),
               SizedBox(height: 20),
-              Text('Prediction: $prediction'),
+              // ignore: prefer_interpolation_to_compose_strings
+              Text(localizations.translate('prediction')! + ': $prediction'),
             ],
           ),
         ),

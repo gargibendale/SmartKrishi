@@ -84,65 +84,90 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         title: const Text('Disease Detector'),
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              children: [
-                const SizedBox(height: 20),
-                DropdownButton<String>(
-                  value: _selectedLanguage,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      _selectedLanguage = newValue!;
-                    });
-                    print('Selected language: $_selectedLanguage');
-                  },
-                  items: _languages.keys
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: pickImage,
-                  child: const Text('Pick Image'),
-                ),
-                const SizedBox(height: 20),
-                _image != null
-                    ? Image.file(
-                        _image!,
-                        height: 200,
-                      )
-                    : const Text('No image selected.'),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: _image != null
-                      ? () {
-                          print('Button pressed with fixed prompt.');
-                          giveResponse(_image!);
-                        }
-                      : null,
-                  child: const Text('Identify Disease'),
-                ),
-                const SizedBox(height: 20),
-                _response.isNotEmpty
-                    ? MarkdownBody(
-                        data: _response,
-                        styleSheet: MarkdownStyleSheet(
-                          p: TextStyle(color: Colors.black),
-                        ),
-                      )
-                    : const Text('No response yet.'),
-              ],
+      body: Stack(
+        children: [
+          // Background image
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.6,
+              child: Image.network(
+                'assets/sapling.jpg', // Replace with your background image path
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
+          // Content
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    DropdownButton<String>(
+                      value: _selectedLanguage,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _selectedLanguage = newValue!;
+                        });
+                        print('Selected language: $_selectedLanguage');
+                      },
+                      items: _languages.keys
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: pickImage,
+                      child: const Text('Pick Image'),
+                    ),
+                    const SizedBox(height: 20),
+                    _image != null
+                        ? Image.file(
+                            _image!,
+                            height: 200,
+                          )
+                        : const Text('No image selected.'),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: _image != null
+                          ? () {
+                              print('Button pressed with fixed prompt.');
+                              giveResponse(_image!);
+                            }
+                          : null,
+                      child: const Text('Identify Disease'),
+                    ),
+                    const SizedBox(height: 20),
+                    _response.isNotEmpty
+                        ? Container(
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.8),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: MarkdownBody(
+                              data: _response,
+                              styleSheet: MarkdownStyleSheet(
+                                p: TextStyle(color: Colors.black),
+                              ),
+                            ),
+                          )
+                        : const Text('No response yet.'),
+                    SizedBox(
+                      height: 1000,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

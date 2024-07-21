@@ -29,6 +29,12 @@
         "get_recommendation": "Get Recommendation",
         "no_recommendation_yet": "No recommendation yet",
         "recommended_crop": "Recommended Crop: ",
+        "title": "Fertilizer Predictor",
+        "soil_type": "Soil Type",
+  "crop_type": "Crop Type",
+  "predict": "Predict",
+  "prediction": "Prediction",
+
   "farmers": {
     "list": [
       {
