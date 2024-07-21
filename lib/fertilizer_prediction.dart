@@ -196,7 +196,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(('title')),
+        title: Text(('Fertilizer Prediction')),
         backgroundColor: Colors.green.shade900,
         foregroundColor: Colors.white,
       ),
