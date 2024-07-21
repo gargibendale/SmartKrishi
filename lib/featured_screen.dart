@@ -199,9 +199,13 @@ class Body extends StatelessWidget {
           ),
           ProductServiceCard(
             imageUrl: 'assets/weather.jpg',
-            title: 'Weather Chat',
-            description:
-                'Know the weather and get recommendations as easily as talking to a friend.',
+             title: localizations?.translate('weather Chat') ?? 'Weather Chat',
+            description: localizations
+                    ?.translate('Weather Chat') ??
+                localizations?.translate(
+                    'Know the weather and get recommendations as easily as talking to a friend.') ??
+                '',
+           
             onTap: () {
               Navigator.pushNamed(context, '/weather');
             },

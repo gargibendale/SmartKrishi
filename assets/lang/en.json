@@ -1,6 +1,8 @@
 {
   "Hello":"Hello",
   "products_services": "Products & Services",
+  "weather Chat": "Weather Chat",
+  "Know the weather and get recommendations as easily as talking to a friend.":"Know the weather and get recommendations as easily as talking to a friend.",
   "crop_recommendation": "Crop Recommendation",
   "Recommendation about the type of crops to be cultivated which is best suited for the respective conditions":"Recommendation about the type of crops to be cultivated which is best suited for the respective conditions",
   "fertilizer_prediction": "Fertilizer Prediction",
