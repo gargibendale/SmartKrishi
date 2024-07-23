@@ -13,7 +13,7 @@ Youtube Explanation Link - [Youtube](https://youtu.be/7Y2IdqdDJ4I?si=5GHS4BrCex5
 * Clone the repo
 * Ensure that you have flutter installed on your machine
 * Open the pubspec.yaml file and make sure that you have all the dependencies downloaded from pub.dev
-* Run flutter pub get
+* Run `flutter pub get`
 * Go to main.dart and click the debug icon in top right corner to run or enter command ` flutter run `
 
 OR **Deploy Link - [AppHost](https://appho.st/d/Hawj0YCI).** - Download the app from here 
@@ -37,6 +37,12 @@ Our project addresses these issues by providing farmers with a user-friendly app
 ## Important Links
 
 **Python Backend** - [Models and notebooks](https://github.com/KeyurMistry123/H2F_Agri_project)
+
+## Demo screenshots
+
+![Untitled design (7)](https://github.com/user-attachments/assets/23e3dfe7-9ee6-4dc7-9cb4-a6535d2d7ec7)
+![Untitled design (6)](https://github.com/user-attachments/assets/0e7ad002-9c2b-443c-bc48-3acdccd98740)
+![Untitled design (5)](https://github.com/user-attachments/assets/5551f65b-b80a-4a4f-bef9-113464d4c3e9)
 
 
 
