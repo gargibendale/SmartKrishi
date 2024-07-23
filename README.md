@@ -26,6 +26,14 @@ Indian farmers face several significant challenges that hinder their agricultura
 * **Language Barriers:** Many modern agricultural apps and resources are available only in English, making it challenging for farmers who are not proficient in the language to benefit from these tools.
 Our project addresses these issues by providing farmers with a user-friendly application that delivers accurate, timely, and localized information, helping them make better decisions and improve their farming practices.
 
+## Key Features
+* Multilingual Support
+* Crop Recommendation
+* Plant Disease detection
+* Youtube links to various agriculture advices for farmers i.e. Educational content
+* Weather chat which gives you precautions to take in a certain weather
+* Features famous Indian farmers who greatly contributed to India's farming
+
 ### Tech Stack
 * Scikit-learn
 * Django
