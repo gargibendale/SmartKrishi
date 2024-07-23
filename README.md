@@ -40,9 +40,9 @@ Our project addresses these issues by providing farmers with a user-friendly app
 
 ## Demo screenshots
 
-![Untitled design (5)](https://github.com/user-attachments/assets/23e3dfe7-9ee6-4dc7-9cb4-a6535d2d7ec7)
-![Untitled design (6)](https://github.com/user-attachments/assets/0e7ad002-9c2b-443c-bc48-3acdccd98740)
-![Untitled design (7)](https://github.com/user-attachments/assets/5551f65b-b80a-4a4f-bef9-113464d4c3e9)
+![Untitled design (5)](https://github.com/user-attachments/assets/7ea9d8d8-7982-4eea-9304-bc265c088561)
+![Untitled design (6)](https://github.com/user-attachments/assets/66add077-ed1e-4d04-ba0c-1c60d0ca799d)
+![Untitled design (7)](https://github.com/user-attachments/assets/460e873f-1eda-48c2-8bbe-1c03d866eb24)
 
 
 
