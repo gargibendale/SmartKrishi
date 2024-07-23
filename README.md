@@ -33,6 +33,7 @@ Our project addresses these issues by providing farmers with a user-friendly app
 * Firebase
 * ngrok
 * Gemini AI
+* OpenWeather API for real-time weather
 
 ## Important Links
 
