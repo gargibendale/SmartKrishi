@@ -2,7 +2,7 @@
 ### Your one-stop farmer's assistant!
 
 ### Hackathon details
-**Our project SmartKrishi won 3rd Rank in the hackathon Hack to the Future✨**
+### **This project won 3rd Rank in the hackathon Hack to the Future!!**
 
 Devfolio link - [H2TF](https://hack-to-the-future.devfolio.co/)
 Project link - [SmartKrishi](https://devfolio.co/projects/smartkrishi-d278)
